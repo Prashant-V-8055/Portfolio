@@ -6,6 +6,12 @@
     <title>Prashant Portfolio</title>
 
     <style>
+        /* Global Box-Sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -81,7 +87,8 @@
         }
 
         .page-content {
-            padding: 40px;
+            padding: 0 20px;
+            overflow: hidden;
         }
 
         /* INTRO SECTION */
@@ -123,28 +130,10 @@
         .introduction-buttons {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap; /* Ensures buttons stack on smaller screens */
         }
 
-        /*.btn-primary {
-            background: #2e6df6;
-            padding: 12px 22px;
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .btn-outline {
-            border: 2px solid #d0d0d0;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            background: white;
-        }
- */
- /* Primary Button */
+       
         .btn-primary {
            /* background: #4E97B1;   Soft blue */
              background: #39738C;  /* Darker soft blue */
@@ -155,6 +144,9 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.3s ease;
+             text-align: center;
+             display: inline-block;
+             width: auto;
         }
 
        .btn-primary:hover {
@@ -174,6 +166,9 @@
             font-weight: 600;
             text-decoration: none;
             transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+             text-align: center;
+            display: inline-block;
+             width: auto;
         }
 
 /* Button (Hover) */
@@ -248,6 +243,7 @@
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
+            justify-content: space-between; 
         }
 
         .project-card,.service-card {
@@ -257,6 +253,13 @@
             padding: 25px;
             border-radius: 16px;
             box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            margin: 10px 0; /* Prevents cards from touching the top or bottom */
+        }
+        /* Prevent cards from overflowing */
+        .project-card,
+        .service-card {
+             max-width: calc(33.33% - 20px); /* Makes sure 3 cards fit in a row with gap */
+             width: 100%;
         }
 
         .project-card h3,.service-card h3 {
@@ -295,6 +298,11 @@
             .services-cards,.project-cards {
                 flex-direction: column; /* Stack the cards vertically on smaller screens */
                 gap: 20px;
+            }
+            .project-card,
+            .service-card {
+                min-width: 100%;
+                max-width: 100%; /* Ensures full width on smaller screens */
             }
         }
 
