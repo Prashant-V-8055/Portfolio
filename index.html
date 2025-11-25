@@ -244,13 +244,13 @@
         }
 
         /* 3 Boxes Layout */
-        .project-cards {
+        .project-cards,.services-cards {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
-        .project-card {
+        .project-card,.service-card {
             background: white;
             flex: 1;
             min-width: 280px;
@@ -259,13 +259,13 @@
             box-shadow: 0 4px 18px rgba(0,0,0,0.08);
         }
 
-        .project-card h3 {
+        .project-card h3,.service-card h3 {
             margin-top: 0;
             font-size: 22px;
             color: #1e1e1e;
         }
 
-        .project-card p {
+        .project-card p,.service-card p  {
             font-size: 16px;
             color: #666;
             line-height: 1.5;
@@ -274,33 +274,6 @@
             font-size: 36px;
             margin-bottom: 15px;
             color: #1e1e1e;
-        }
-
-        .services-cards {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap; /* Ensures responsiveness */
-        }
-
-        .service-card {
-            background: white;
-            flex: 1;
-            min-width: 280px; /* Minimum width of each card */
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-card h3 {
-            margin-top: 0;
-            font-size: 22px;
-            color: #1e1e1e;
-        }
-
-        .service-card p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.5;
         }
 
         /* MOBILE FIXES */
@@ -319,7 +292,7 @@
                 justify-content: center;
                 gap: 14px;
             }
-            .services-cards {
+            .services-cards,.project-cards {
                 flex-direction: column; /* Stack the cards vertically on smaller screens */
                 gap: 20px;
             }
@@ -341,6 +314,17 @@
             .introduction-buttons {
                 flex-direction: column;
                 width: 100%;
+            }
+            .project-card, .service-card {
+                min-width: 100%; /* Full width on very small screens */
+            }
+    
+            .project-card h3, .service-card h3 {
+                font-size: 20px; /* Smaller titles on small screens */
+            }
+
+            .project-card p, .service-card p {
+                 font-size: 14px; /* Smaller text on small screens */
             }
 
             .btn-primary, .btn-outline {
