@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashant Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+           /* background: #FFFDF5;*/
+           background: #F2E1C1; 
+           /*background: #F8D7D3;   Soft blush pink */
+            color: #2F2F2F;
+        }
+
+        /* NAVBAR MAIN WRAPPER */
+        .navbar {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #5A463A;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        /* LOGO + NAME */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFF7EF;
+        }
+
+        .logo-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFF7EF;
+        }
+
+        /* MENU + ICONS GROUP */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-right a:hover {
+            color: #00d9ff;
+        }
+
+        .icon i {
+            font-size: 22px;
+        }
+
+        footer {
+            background: #5A463A;
+            padding: 20px;
+            text-align: center;
+            color: #FFF7EF;
+        }
+
+        .page-content {
+            padding: 40px;
+        }
+
+        /* INTRO SECTION */
+        .introduction, .about-section,.contact-section,
+        .projects-section,.services-section {
+           /* background: white;*/
+           /*background: linear-gradient(135deg, #F9F7F2, #F0E6D2);*/
+           background: linear-gradient(135deg, #F9F7F2, #F4C8A1, #F0E6D2);
+
+
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+          
+
+        .introduction h1, .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+          /*  color: #1e1e1e;*/
+            color: #333333;
+         /* color: #4B5B41; */
+
+
+        }
+
+        .introduction p, .about-section p {
+            font-size: 18px;
+            line-height: 1.5;
+           /* color: #666;*/
+            margin-bottom: 25px;
+            color: #1D2A44;
+        }
+
+        /* Buttons */
+        .introduction-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /*.btn-primary {
+            background: #2e6df6;
+            padding: 12px 22px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            border: 2px solid #d0d0d0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            background: white;
+        }
+ */
+ /* Primary Button */
+        .btn-primary {
+           /* background: #4E97B1;   Soft blue */
+             background: #39738C;  /* Darker soft blue */
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+       .btn-primary:hover {
+            background: #2D5B6E;  /* Much darker blue for hover */
+            color: #FFF;  /* Ensure the text remains white for contrast */
+            transform: scale(1.05);  /* Slight scale effect for interaction */
+        }
+
+        /* Secondary Button */
+     
+        .btn-outline {
+            background: #F0E6D2;  /* Light neutral beige */
+            border: 2px solid #D1C4A1;  /* Warm grayish-beige border */
+            color: #2F2F2F;  /* Dark text for contrast */
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+/* Button (Hover) */
+        .btn-outline:hover {
+            background: #D1B58C;  /* Darker, richer beige with a golden tone */
+            border-color: #D1B58C;  /* Same as background for uniformity */
+            color: #2F2F2F;  /* Keep dark text for high contrast */
+            transform: scale(1.05);  /* Slight scale effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* Add subtle shadow on hover */
+        }
+
+
+        .contact-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #1e1e1e;
+        }
+
+        .contact-form-group {
+            margin-bottom: 25px;
+        }
+
+        .contact-form-group label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .contact-form-group input,
+        .contact-form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #d0d0d0;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .contact-form-group textarea {
+            height: 150px;
+        }
+
+        .contact-form-group button {
+            background: #2e6df6;
+            padding: 12px 22px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-form-group button:hover {
+            background-color: #005bb5;
+        }
+
+        /* Error message styling */
+        .error {
+            color: #f39c12;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .projects-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #1e1e1e;
+        }
+
+        /* 3 Boxes Layout */
+        .project-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background: white;
+            flex: 1;
+            min-width: 280px;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #1e1e1e;
+        }
+
+        .project-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .services-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #1e1e1e;
+        }
+
+        .services-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Ensures responsiveness */
+        }
+
+        .service-card {
+            background: white;
+            flex: 1;
+            min-width: 280px; /* Minimum width of each card */
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #1e1e1e;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            .navbar {
+                justify-content: center;
+                text-align: center;
+                padding: 15px 15px;
+            }
+
+            .header-left {
+                margin-bottom: 10px;
+            }
+
+            .nav-right {
+                justify-content: center;
+                gap: 14px;
+            }
+            .services-cards {
+                flex-direction: column; /* Stack the cards vertically on smaller screens */
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .introduction, .about-section, .contact-section {
+                padding: 25px 20px;
+            }
+
+            .introduction h1, .about-section h2, .contact-section h2 {
+                font-size: 28px;
+            }
+
+            .introduction p, .about-section p {
+                font-size: 16px;
+            }
+
+            .introduction-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-outline {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- EmailJS SDK -->
+<!--    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    function App() {
+        const [formData, setFormData] = React.useState({
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+        });
+
+        const [errors, setErrors] = React.useState({
+            Name:'',
+            email: '',
+            phone: '',
+        });
+
+        // Handle input change
+        const handleInputChange = (e) => {
+            const { name, value } = e.target;
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        };
+
+        // Validate email and phone
+        const validate = () => {
+            const newErrors = {};
+              // Name is required
+            if (!formData.name) {
+                newErrors.name = 'Name is required';
+            }
+            // Email validation (must be required and valid)
+            if (!formData.email) {
+                newErrors.email = 'Email is required';
+            } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+                newErrors.email = 'Email is invalid';
+            }
+
+            // Phone validation (optional but must be valid Indian phone number)
+            if (formData.phone && !/^[6-9]\d{9}$/.test(formData.phone)) {
+                newErrors.phone = 'Phone number must be in the format 9876543210';
+            }
+            if (!formData.message) {
+                 newErrors.message = 'Message is required'; // Added validation
+            }
+
+            setErrors(newErrors);
+            return Object.keys(newErrors).length === 0;
+        };
+
+        // Handle form submission
+        const handleSubmit = (e) => {
+            e.preventDefault();
+
+            if (!validate()) {
+                return;
+            }
+
+    const subject = `${formData.name}`;
+
+            // Send email using EmailJS (skip template)
+            emailjs.send("service_pvtt3r7", "template_rxqme7c", {
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.phone,
+                message: formData.message,
+                subject: subject, 
+            }, "QcFN-demq7Exp4SaW")
+                .then((response) => {
+                    console.log('Message sent successfully', response);
+                    // Reset the form after successful submission
+                    setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                    });
+                    alert('Message sent successfully!');
+                })
+                .catch((error) => {
+                    console.error('Error sending message:', error);
+                    alert('There was an error sending your message. Please try again.');
+                });
+
+          
+
+            // Reset the form after submission
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                message: '',
+            });
+
+           // alert('Message sent successfully!');
+        };
+
+        return (
+            <div>
+
+                {/* NAVBAR */}
+                <nav className="navbar">
+                    {/* LEFT: LOGO + NAME */}
+                    <div className="header-left">
+                        <img src="Prashant.jpg" alt="logo" className="logo" />
+                        <span className="logo-name">Prashant</span>
+                    </div>
+
+                    {/* RIGHT: MENU + ICONS */}
+                    <div className="nav-right">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#services">Services</a>
+                        <a href="#contact">Contact</a>
+
+                        <a href="https://www.linkedin.com/in/prashant-v-76016b257/" target="_blank" className="icon">
+                            <i className="fab fa-linkedin"></i>
+                        </a>
+
+                        <a href="https://github.com/Prashant-V-8055" target="_blank" className="icon">
+                            <i className="fab fa-github"></i>
+                        </a>
+                    </div>
+                </nav>
+
+                {/* PAGE CONTENT */}
+                <div className="page-content">
+
+                    {/* INTRO SECTION */}
+                    <div className="introduction" id="home">
+                        <h1>Hello — I'm Prashant</h1>
+
+                        <p>
+                            I build simple, reliable, and responsive web applications.
+                            I focus on practical projects that solve real problems.
+                            I enjoy learning and improving my skills in full-stack development.
+                        </p>
+
+                        <div className="introduction-buttons">
+                            <a href="#projects" className="btn-primary">See Projects</a>
+                            <a href="#contact" className="btn-outline">Contact Me</a>
+                        </div>
+                    </div>
+
+                    {/* ABOUT SECTION */}
+                    <div className="about-section" id="about">
+                        <h2>About</h2>
+
+                        <p>
+                            I am a web developer building practical, easy-to-use applications.
+                            My background includes building Chrome extensions, small backend
+                            services, and front-end projects. I prefer clear, maintainable
+                            code and simple designs that scale.
+                        </p>
+                    </div>
+
+                    {/* PROJECTS SECTION */}
+                    <div className="projects-section" id="projects">
+                        <div className="projects-title">Projects</div>
+                        <div className="project-cards">
+                            <div className="project-card">
+                                <h3>Project One</h3>
+                                <p>
+                                   Dummy description for the third project. Add your real content here.
+                                </p>
+                                <a className="btn-primary">View Project</a>
+                            </div>
+
+                            <div className="project-card">
+                                <h3>Project Two</h3>
+                                <p>
+                                   Dummy description for the third project. Add your real content here.
+                                </p>
+                                <a className="btn-primary">View Project</a>
+                            </div>
+
+                            <div className="project-card">
+                                <h3>Project Three</h3>
+                                <p>
+                                    Dummy description for the third project. Add your real content here.
+                                </p>
+                                <a className="btn-primary">View Project</a>
+                            </div>
+                            <div className="project-card">
+                                <h3>Project Four</h3>
+                                <p>
+                                    Dummy description for the third project. Add your real content here.
+                                </p>
+                                <a className="btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                                
+                <div class="services-section" id="services">
+                    <h2>Services</h2>
+                    <div class="services-cards">
+                       
+                        <div class="service-card">
+                            <h3>Web Development</h3>
+                            <p>
+                                I provide modern web development services, from front-end to back-end, ensuring your website is fast, responsive, and scalable.
+                            </p>
+                        </div>
+
+                        
+                        <div class="service-card">
+                            <h3>Mobile App Development</h3>
+                            <p>
+                                I create user-friendly and intuitive mobile applications tailored to your business needs, available on both iOS and Android platforms.
+                            </p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Service3</h3>
+                            <p>
+                                I create user-friendly and intuitive mobile applications tailored to your business needs, available on both iOS and Android platforms.
+                            </p>
+                        </div>
+                        <div class="service-card">
+                            <h3>Service4</h3>
+                            <p>
+                                I create user-friendly and intuitive mobile applications tailored to your business needs, available on both iOS and Android platforms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {/* CONTACT SECTION */}
+                    <div className="contact-section" id="contact">
+                        <h2>Contact Me</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className="contact-form-group">
+                                <label htmlFor="name">Name:</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder="Your Name" 
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    
+                                />
+                                {errors.name && <p className="error">{errors.name}</p>} 
+
+                            </div>
+
+                            <div className="contact-form-group">
+                                <label htmlFor="email">Email:</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="Your Email" 
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    
+                                />
+                                {errors.email && <p className="error">{errors.email}</p>}
+                            </div>
+
+                            <div className="contact-form-group">
+                                <label htmlFor="phone">Phone Number:</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="Your Phone Number" 
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    pattern="^[6-9]\d{9}$"
+                                    
+                                />
+                                {errors.phone && <p className="error">{errors.phone}</p>}
+                            </div>
+
+                            <div className="contact-form-group">
+                                <label htmlFor="message">Message:</label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    placeholder="Your Message" 
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                    
+                                ></textarea>
+                                {errors.message && <p className="error">{errors.message}</p>}
+                            </div>
+
+                            <div className="contact-form-group">
+                                <button type="submit" className="btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+        );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+</script>
+
+</body>
+</html>
