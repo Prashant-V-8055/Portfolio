@@ -286,6 +286,9 @@
 
         /* MOBILE FIXES */
         @media (max-width: 768px) {
+             .page-content {
+                padding-top: 120px; /* Ensure enough space for navbar */
+             }
             .navbar {
                 justify-content: center;
                 text-align: center;
@@ -312,6 +315,9 @@
         }
 
         @media (max-width: 600px) {
+            .page-content {
+                padding-top: 120px; /* Ensure enough space for navbar */
+             }
             .introduction, .about-section, .contact-section {
                 padding: 25px 20px;
             }
@@ -670,9 +676,11 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
+                    // Dynamically calculate navbar height
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
                     const targetElement = document.querySelector(this.getAttribute('href'));
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Subtract navbar height (80px in this case)
+                        top: targetElement.offsetTop - navbarHeight, // Subtract navbar height (80px in this case)
                         behavior: 'smooth',
                     });
                 });
