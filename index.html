@@ -1,517 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashant Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prashant — Power Platform Developer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+:root{
+  --bg:#F3F5F9; --card:#FFFFFF; --text:#16213B; --muted:#5B6B86;
+  --navy:#0E1B33; --accent:#2563EB; --accent-dk:#1D4ED8; --border:#E2E7F0;
+  --tag-bg:#EAF1FF;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1220; --card:#121B2E; --text:#E7ECF5; --muted:#92A1BD;
+    --navy:#070C16; --accent:#4C8BFF; --accent-dk:#2563EB; --border:#223050;
+    --tag-bg:#15233F;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1220; --card:#121B2E; --text:#E7ECF5; --muted:#92A1BD;
+  --navy:#070C16; --accent:#4C8BFF; --accent-dk:#2563EB; --border:#223050;
+  --tag-bg:#15233F;
+}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);}
 
-    <style>
-        /* ===== YOUR CSS EXACTLY COPIED ===== */
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #F2E1C1;
-            color: #333333;
-        }
+.navbar{
+  position:fixed;top:0;left:0;width:100%;
+  padding:12px 20px;padding-top:calc(12px + env(safe-area-inset-top,0px));
+  background:var(--navy);display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;z-index:1000;box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+.header-left{display:flex;align-items:center;gap:12px;}
+.avatar{
+  width:42px;height:42px;border-radius:50%;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;
+  border:2px solid rgba(255,255,255,.25);
+}
+.logo-name{font-size:18px;font-weight:800;color:#F5F8FF;letter-spacing:.2px;}
+.nav-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.nav-right a{text-decoration:none;color:#D7E0F2;font-size:14.5px;font-weight:600;transition:.2s;}
+.nav-right a:hover{color:var(--accent);}
+.icon i{font-size:19px;}
 
-        .navbar {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #34495E;
-            padding: 10px 20px;
-            flex-wrap: wrap;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+.page-content{padding:0 18px;padding-top:88px;max-width:900px;margin:0 auto;}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  padding:34px 36px;border-radius:16px;margin:28px 0;
+  box-shadow:0 4px 18px rgba(15,23,42,.06);scroll-margin-top:84px;
+}
+h1{font-size:clamp(26px,5vw,36px);margin:0 0 6px;color:var(--text);font-weight:800;}
+h2{font-size:24px;margin:0 0 16px;color:var(--text);font-weight:800;}
+.tagline{color:var(--accent);font-weight:700;font-size:15px;margin-bottom:14px;}
+p{font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 20px;}
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary,.btn-outline{
+  padding:11px 20px;border-radius:9px;font-weight:700;font-size:14.5px;
+  text-decoration:none;display:inline-block;transition:.2s;border:2px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:var(--accent-dk);}
+.btn-outline{background:transparent;border-color:var(--border);color:var(--text);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
 
-        .logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #FFF7EF;
-        }
-        .logo-name {
-            font-size: 20px;
-            font-weight: bold;
-            color: #FFF7EF;
-        }
+.project-card{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:18px;
+}
+.project-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.project-head h3{margin:0;font-size:19px;color:var(--text);font-weight:800;}
+.status-badge{
+  font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;
+  background:var(--tag-bg);color:var(--accent);white-space:nowrap;
+}
+.tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.tag{
+  background:var(--tag-bg);color:var(--accent);font-size:12.5px;font-weight:700;
+  padding:5px 11px;border-radius:20px;
+}
+.skill-group{margin-bottom:16px;}
+.skill-group h4{margin:0 0 8px;font-size:13.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;}
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .nav-right a {
-            text-decoration: none;
-            color: #FFF7EF;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .nav-right a:hover { color: #00BFFF; }
-        .icon i { font-size: 22px; }
+.job-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:2px;}
+.job-head h3{margin:0;font-size:18px;color:var(--text);font-weight:800;}
+.job-head span{font-size:13.5px;color:var(--muted);font-weight:700;}
+.job-sub{color:var(--accent);font-size:14px;font-weight:700;margin-bottom:14px;}
+.bullet-list{margin:0;padding-left:20px;}
+.bullet-list li{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:10px;}
+.bullet-list li::marker{color:var(--accent);}
 
-        .page-content {
-            padding: 0 20px;
-            padding-top: 80px;
-        }
+.architecture{
+  background:var(--tag-bg);border-radius:10px;padding:14px 16px;font-size:13.5px;
+  font-weight:700;color:var(--accent);text-align:center;margin-bottom:16px;overflow-x:auto;white-space:nowrap;
+}
 
-        .introduction, .about-section, .contact-section,
-        .projects-section, .services-section {
-            background: linear-gradient(135deg, #F9F7F2, #F4C8A1, #F0E6D2);
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 40px 50px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-            text-align: left;
-            scroll-margin-top: 80px;
-        }
+.services-cards{display:flex;gap:18px;flex-wrap:wrap;}
+.service-card{
+  flex:1;min-width:230px;background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:22px;
+}
+.service-card i{color:var(--accent);font-size:22px;margin-bottom:10px;display:block;}
+.service-card h3{margin:0 0 8px;font-size:17px;color:var(--text);font-weight:800;}
+.service-card p{font-size:14.5px;margin:0;}
 
-        .introduction h1, .about-section h2, .contact-section h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            margin-top: 0;
-            color: #333;
-        }
-        .introduction p, .about-section p {
-            font-size: 18px;
-            line-height: 1.5;
-            margin-bottom: 25px;
-            color: #1D2A44;
-        }
+.contact-form-group{margin-bottom:18px;}
+.contact-form-group label{font-size:14.5px;font-weight:700;color:var(--text);display:block;margin-bottom:6px;}
+.contact-form-group input,.contact-form-group textarea{
+  width:100%;padding:11px 12px;font-size:15px;border:2px solid var(--border);
+  border-radius:9px;background:var(--bg);color:var(--text);font-family:inherit;
+}
+.contact-form-group input:focus,.contact-form-group textarea:focus{outline:none;border-color:var(--accent);}
+textarea{height:130px;resize:vertical;}
+.error{color:#DC2626;font-size:13px;margin:4px 0 0;font-weight:600;min-height:16px;}
 
-        .introduction-buttons {
-            display: flex; gap: 15px; flex-wrap: wrap;
-        }
+.popup{
+  position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);
+  display:none;justify-content:center;align-items:center;z-index:9999;
+}
+.popup-content{
+  background:var(--card);color:var(--text);padding:24px 34px;border-radius:14px;
+  text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);border-left:6px solid #22C55E;
+}
+.popup-content.error{border-left-color:#DC2626;}
+.popup-icon{font-size:36px;color:#22C55E;}
+.popup-content.error .popup-icon{color:#DC2626;}
 
-        .btn-primary {
-            background: #39738C;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .btn-primary:hover {
-            background: #2D5B6E;
-            transform: scale(1.05);
-        }
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(24px + env(safe-area-inset-bottom,0px));}
 
-        .btn-outline {
-            background: #F0E6D2;
-            border: 2px solid #D1C4A1;
-            color: #2F2F2F;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .btn-outline:hover {
-            background: #D1B58C;
-            border-color: #D1B58C;
-            transform: scale(1.05);
-        }
-
-        /* Projects */
-        .projects-title {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            color: #1e1e1e;
-        }
-        .project-cards, .services-cards {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .project-card, .service-card {
-            background: white;
-            flex: 1;
-            min-width: 280px;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-            max-width: calc(33.33% - 20px);
-        }
-
-        .project-card h3, .service-card h3 {
-            margin-top: 0;
-            font-size: 22px;
-        }
-        .project-card p, .service-card p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* Contact */
-        .contact-form-group { margin-bottom: 25px; }
-        .contact-form-group label {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        .contact-form-group input,
-        .contact-form-group textarea {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: 2px solid #d0d0d0;
-            border-radius: 8px;
-        }
-        textarea { height: 150px; }
-
-        .error {
-            color:#D35400;
-            font-size: 18px;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-         /* Popup Background */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(4px);
-            z-index: 9999;
-        }
-
-        /* Popup Box */
-        .popup-content {
-            background: white;
-            padding: 25px 35px;
-            border-radius: 15px;
-            text-align: center;
-            animation: popIn 0.3s ease-out;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Checkmark Icon */
-        .popup-icon {
-            font-size: 40px;
-            color: #2ecc71;
-            font-weight: bold;
-        }
-        /* Error popup variations */
-        .popup-content.error {
-            border-left: 6px solid #e74c3c;
-        }
-
-        .popup-content.error .popup-icon {
-            color: #e74c3c;
-        }
-
-
-        /* Animation */
-        @keyframes popIn {
-            from {
-                transform: scale(0.7);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            .navbar { justify-content: center; }
-            .services-cards, .project-cards {
-                flex-direction: column;
-            }
-            .project-card, .service-card { max-width: 100%; }
-        }
-        @media (max-width: 600px) {
-            .btn-primary, .btn-outline { width: 100%; }
-        }
-    </style>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+@media (max-width:768px){
+  .navbar{justify-content:center;}
+  .card{padding:26px 20px;}
+  .services-cards{flex-direction:column;}
+}
+@media (max-width:600px){
+  .btn-primary,.btn-outline{flex:1;text-align:center;}
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
-        <div id="successPopup" class="popup">
-            <div class="popup-content">
-                <span class="popup-icon">✔</span>
-                <p>Message Sent Successfully</p>
-            </div>
-        </div>
 
-        <div id="errorPopup" class="popup">
-            <div class="popup-content error">
-                <span class="popup-icon">✖</span>
-                <p>Error sending message!</p>
-            </div>
-        </div>
+<div id="successPopup" class="popup"><div class="popup-content"><span class="popup-icon">✔</span><p>Message sent successfully</p></div></div>
+<div id="errorPopup" class="popup"><div class="popup-content error"><span class="popup-icon">✖</span><p>Error sending message</p></div></div>
 
+<nav class="navbar">
+  <div class="header-left">
+    <div class="avatar">P</div>
+    <span class="logo-name">Prashant</span>
+  </div>
+  <div class="nav-right">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/prashant-v-76016b257/" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/Prashant-V-8055" target="_blank" class="icon"><i class="fab fa-github"></i></a>
+  </div>
+</nav>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="header-left">
-            <img src="Prashant.jpg" class="logo" />
-            <span class="logo-name">Prashant</span>
-        </div>
+<div class="page-content">
 
-        <div class="nav-right">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-
-            <a href="https://www.linkedin.com/in/prashant-v-76016b257/" target="_blank" class="icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-
-            <a href="https://github.com/Prashant-V-8055" target="_blank" class="icon">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </nav>
-
-    <div class="page-content">
-
-        <!-- INTRO -->
-        <div class="introduction" id="home">
-            <h1>Hello — I'm Prashant</h1>
-            <p>
-                I build simple, reliable, and responsive web applications.
-                I focus on practical projects that solve real problems.
-                I enjoy learning and improving my skills in full-stack development.
-            </p>
-
-            <div class="introduction-buttons">
-                <a href="#projects" class="btn-primary">See Projects</a>
-                <a href="#contact" class="btn-outline">Contact Me</a>
-            </div>
-        </div>
-
-        <!-- ABOUT -->
-        <div class="about-section" id="about">
-            <h2>About</h2>
-            <p>
-                I am a web developer building practical, easy-to-use applications.
-                My background includes building Chrome extensions, backend services,
-                and front-end projects. I prefer clean, maintainable code.
-            </p>
-        </div>
-
-        <!-- PROJECTS -->
-        <div class="projects-section" id="projects">
-            <div class="projects-title">Projects</div>
-
-            <div class="project-cards">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>Dummy description for the project.</p>
-                    <a class="btn-primary">View Project</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>Dummy description for the project.</p>
-                    <a class="btn-primary">View Project</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>Dummy description for the project.</p>
-                    <a class="btn-primary">View Project</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>Project Four</h3>
-                    <p>Dummy description for the project.</p>
-                    <a class="btn-primary">View Project</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SERVICES -->
-        <div class="services-section" id="services">
-            <h2>Services</h2>
-
-            <div class="services-cards">
-                <div class="service-card">
-                    <h3>Web Development</h3>
-                    <p>I build fast, responsive websites.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Mobile App Development</h3>
-                    <p>I create intuitive apps for Android & iOS.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Service 3</h3>
-                    <p>Description here.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Service 4</h3>
-                    <p>Description here.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="contact-section" id="contact">
-            <h2>Contact Me</h2>
-
-            <form id="contactForm">
-                <div class="contact-form-group">
-                    <label>Name:</label>
-                    <input type="text" id="name" placeholder="Your Name">
-                    <p class="error" id="err-name"></p>
-                </div>
-
-                <div class="contact-form-group">
-                    <label>Email:</label>
-                    <input type="email" id="email" placeholder="Your Email">
-                    <p class="error" id="err-email"></p>
-                </div>
-
-                <div class="contact-form-group">
-                    <label>Phone:</label>
-                    <input type="tel" id="phone" placeholder="Your Phone Number">
-                    <p class="error" id="err-phone"></p>
-                </div>
-
-                <div class="contact-form-group">
-                    <label>Message:</label>
-                    <textarea id="message" placeholder="Your Message"></textarea>
-                    <p class="error" id="err-message"></p>
-                </div>
-
-                <button type="submit" class="btn-primary">Send Message</button>
-            </form>
-        </div>
+  <section class="card" id="home">
+    <div class="tagline">POWER PLATFORM DEVELOPER</div>
+    <h1>Hi, I'm Prashant</h1>
+    <p>I design and maintain 70+ production Power Automate cloud flows integrating external systems with Microsoft Dataverse — covering real-time order and offer management events, bulk data pipelines processing 100,000+ records, and audited transaction tracking for business-critical workflows.</p>
+    <div class="btn-row">
+      <a href="#experience" class="btn-primary">See Experience</a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
     </div>
+  </section>
+
+  <section class="card" id="about">
+    <h2>About</h2>
+    <p>I'm a Software Engineer at UXL Technologies, Bengaluru, building and maintaining 70 production Power Automate cloud flows — 30 for order management and 40 for offer management — each integrating external systems through webhook-based, real-time event triggers. I own the full solution lifecycle: I read business requirements directly from Jira, design the flow logic and data validation rules, get them approved, and implement them myself. My work includes bulk Excel/file import pipelines that validate and insert over 100,000 records into Dataverse transaction tables, automated error-notification emails for failed records, and audit/history tracking that captures previous versus updated values whenever business-critical fields change.</p>
+  </section>
+
+  <section class="card" id="skills">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h4>Power Platform</h4>
+      <div class="tech-stack">
+        <span class="tag">Power Automate (Cloud Flows)</span>
+        <span class="tag">Microsoft Dataverse</span>
+        <span class="tag">Solutions</span>
+        <span class="tag">Connection References</span>
+        <span class="tag">Environment Variables</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Integration & Data</h4>
+      <div class="tech-stack">
+        <span class="tag">Webhooks</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">HTTP Actions</span>
+        <span class="tag">JSON / Parse JSON</span>
+        <span class="tag">Error Handling & Retry Logic</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools</h4>
+      <div class="tech-stack">
+        <span class="tag">SharePoint</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Excel</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Git & GitHub</span>
+      </div>
+    </div>
+    <div class="skill-group" style="margin-bottom:0;">
+      <h4>Exploring</h4>
+      <div class="tech-stack">
+        <span class="tag">Power Apps (Canvas)</span>
+        <span class="tag">Power Fx</span>
+        <span class="tag">Next.js / Node.js / MySQL</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="experience">
+    <h2>Experience</h2>
+    <div class="job-head">
+      <h3>Software Engineer</h3>
+      <span>Oct 2024 – Present</span>
+    </div>
+    <div class="job-sub">UXL Technologies, Bengaluru</div>
+    <ul class="bullet-list">
+      <li>Maintain 70 production Power Automate cloud flows across order management (30) and offer management (40), integrating external systems via webhook-based real-time event triggers</li>
+      <li>Own end-to-end solution design: analyze business requirements from Jira, architect the flow logic, and implement after approval</li>
+      <li>Built bulk data import pipelines processing Excel/file uploads with field-level validation, handling 100,000+ records — valid entries insert directly into Dataverse, invalid ones trigger automated error-notification emails to the uploading user</li>
+      <li>Built Dataverse-integrated transaction processing with validation, status management, and audit/history tracking that captures previous vs. updated values on business-critical field changes</li>
+      <li>Process JSON/API payloads using HTTP actions, Parse JSON, expressions, and data operations across multi-stage order lifecycle events (order received, validated, submitted downstream)</li>
+      <li>Implement flow-level error handling, retry logic, and failure-recovery mechanisms to improve integration reliability</li>
+    </ul>
+  </section>
+
+  <section class="card" id="key-project">
+    <h2>Key Project: Order & Offer Management Integration Platform</h2>
+    <div class="architecture">Source System → Power Automate → Centralized System → Webhook Events → Power Automate → Dataverse</div>
+    <ul class="bullet-list">
+      <li>Designed the event-driven integration connecting source order/offer systems to a centralized Dataverse platform</li>
+      <li>Matched incoming webhook events against existing Dataverse transactions and tracked field-level changes with full before/after history</li>
+      <li>Reduced manual monitoring of order lifecycle events and improved traceability of transaction changes across 70 automated workflows</li>
+    </ul>
+  </section>
+
+  <section class="card" id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <div class="project-head">
+        <h3>Expense Tracker</h3>
+      </div>
+      <p style="margin-bottom:0;">Developing a full-stack expense tracking application with user authentication and persistent MySQL storage, using Next.js on the frontend and Node.js/Next.js API routes on the backend.</p>
+      <div class="tech-stack">
+        <span class="tag">Next.js</span>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">NextAuth.js</span>
+        <span class="tag">Git & GitHub</span>
+        <span class="tag">Vercel</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="services">
+    <h2>Services</h2>
+    <div class="services-cards">
+      <div class="service-card">
+        <i class="fas fa-diagram-project"></i>
+        <h3>Power Platform Automation</h3>
+        <p>Power Automate flows and Dataverse-based transaction systems for order/offer management, bulk data validation, and webhook-based system integration.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-code"></i>
+        <h3>Full-Stack Web Development</h3>
+        <p>Web applications using Next.js, Node.js, and MySQL — including authentication, database-backed APIs, and server-side rendering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>Let's Connect</h2>
+    <form id="contactForm">
+      <div class="contact-form-group">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Your name">
+        <p class="error" id="err-name"></p>
+      </div>
+      <div class="contact-form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="your.email@example.com">
+        <p class="error" id="err-email"></p>
+      </div>
+      <div class="contact-form-group">
+        <label>Phone</label>
+        <input type="tel" id="phone" placeholder="9876543210">
+        <p class="error" id="err-phone"></p>
+      </div>
+      <div class="contact-form-group">
+        <label>Message</label>
+        <textarea id="message" placeholder="Your message"></textarea>
+        <p class="error" id="err-message"></p>
+      </div>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+
+</div>
+
+<footer>© <span id="year"></span> Prashant · Microsoft Power Platform Developer  </footer>
 
 <script>
-    /* Smooth Scroll Fix to Avoid Hiding Under Navbar */
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const target = document.querySelector(link.getAttribute('href'));
-            window.scrollTo({
-                top: target.offsetTop - navbarHeight,
-                behavior: "smooth"
-            });
-        });
-    });
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* EmailJS + Form Validation */
-    const form = document.getElementById("contactForm");
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    const target = document.querySelector(link.getAttribute('href'));
+    if(target){ window.scrollTo({top: target.offsetTop - navbarHeight, behavior:"smooth"}); }
+  });
+});
 
-    function showError(id, msg) {
-        document.getElementById(id).textContent = msg;
-    }
-    function showSuccessPopup() {
-        const popup = document.getElementById("successPopup");
-        popup.style.display = "flex";
+const form = document.getElementById("contactForm");
+function showError(id,msg){ document.getElementById(id).textContent = msg; }
+function flashPopup(id){
+  const p = document.getElementById(id);
+  p.style.display="flex";
+  setTimeout(()=>{ p.style.display="none"; }, 2000);
+}
 
-        // Auto-close after 2 seconds
-        setTimeout(() => {
-         popup.style.display = "none";
-        }, 2000);
-    }
-    function showErrorPopup() {
-        const popup = document.getElementById("errorPopup");
-        popup.style.display = "flex";
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let message = document.getElementById("message").value.trim();
+  let valid = true;
 
-        setTimeout(() => {
-        popup.style.display = "none";
-        }, 2000);
-    }
+  ["err-name","err-email","err-phone","err-message"].forEach(id=>showError(id,""));
 
+  if(!name){ showError("err-name","Name is required"); valid=false; }
+  if(!email){ showError("err-email","Email is required"); valid=false; }
+  else if(!/\S+@\S+\.\S+/.test(email)){ showError("err-email","Invalid email"); valid=false; }
+  if(phone && !/^[6-9]\d{9}$/.test(phone)){ showError("err-phone","Phone must be like 9876543210"); valid=false; }
+  if(!message){ showError("err-message","Message is required"); valid=false; }
 
+  if(!valid) return;
 
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        let name = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let phone = document.getElementById("phone").value.trim();
-        let message = document.getElementById("message").value.trim();
-
-        let valid = true;
-
-        showError("err-name", "");
-        showError("err-email", "");
-        showError("err-phone", "");
-        showError("err-message", "");
-
-        if (!name) { 
-            showError("err-name", "Name is required"); 
-            valid = false; 
-        }
-        if (!email) {
-            showError("err-email", "Email is required"); 
-            valid = false;
-        } else if (!/\S+@\S+\.\S+/.test(email)) {
-            showError("err-email", "Invalid Email");
-             valid = false;
-        }
-        if (phone && !/^[6-9]\d{9}$/.test(phone)) {
-            showError("err-phone", "Phone must be 9876543210"); 
-            valid = false;
-        }
-        if (!message) {
-            showError("err-message", "Message is required"); 
-            valid = false;
-        }
-
-        if (!valid) 
-        return;
-
-        emailjs.send("service_pvtt3r7", "template_rxqme7c", {
-            from_name: name,
-            from_email: email,
-            phone: phone,
-            message: message,
-            subject: name
-        }, "QcFN-demq7Exp4SaW")
-        .then(() => {
-            //alert("Message sent successfully!");
-            showSuccessPopup();
-            form.reset();
-        })
-        .catch(() => {
-            //alert("Error sending message.");
-            showErrorPopup();
-
-        });
-    });
+  try{
+    emailjs.send("service_pvtt3r7","template_rxqme7c",{
+      from_name:name, from_email:email, phone:phone, message:message, subject:name
+    }, "QcFN-demq7Exp4SaW")
+    .then(()=>{ flashPopup("successPopup"); form.reset(); })
+    .catch(()=>{ flashPopup("errorPopup"); });
+  }catch(err){ flashPopup("errorPopup"); }
+});
 </script>
 
 </body>
