@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prashant — Power Platform Developer</title>
+<meta name="description" content="Prashant is a Power Platform Developer with 2+ years building Power Automate flows, Dataverse integrations, and Power Apps Canvas apps. Open to remote roles.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Prashant — Power Platform Developer">
+<meta property="og:description" content="2+ years building Power Automate flows, Dataverse integrations, and Power Apps Canvas apps. Open to remote roles.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Prashant — Power Platform Developer">
+<meta name="twitter:description" content="2+ years building Power Automate flows, Dataverse integrations, and Power Apps Canvas apps. Open to remote roles.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Prashant","jobTitle":"Power Platform Developer","worksFor":{"@type":"Organization","name":"UXL Technologies"},"knowsAbout":["Power Automate","Microsoft Dataverse","Power Apps","Power Fx","Webhooks","REST APIs"],"sameAs":["https://www.linkedin.com/in/prashant-v-76016b257/","https://github.com/Prashant-V-8055"]}
+</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -68,6 +78,17 @@ p{font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 20px;}
 .btn-primary:hover{background:var(--accent-dk);}
 .btn-outline{background:transparent;border-color:var(--border);color:var(--text);}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+.stats-row{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:22px;}
+.stat-item{display:flex;flex-direction:column;}
+.stat-num{font-size:27px;font-weight:800;color:var(--accent);line-height:1.1;}
+.stat-label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:2px;}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+h2 i{color:var(--accent);margin-right:9px;font-size:20px;}
 
 .project-card{
   background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:18px;
@@ -150,8 +171,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
 
 <nav class="navbar">
   <div class="header-left">
-    <!-- <div class="avatar">P</div> -->
-    <img src="Prashant.jpeg" class="avatar" />
+   <!-- <div class="avatar">P</div> -->
+    <img src="Prashant.jpeg" class="avatar />
     <span class="logo-name">Prashant</span>
   </div>
   <div class="nav-right">
@@ -172,25 +193,32 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
     <div class="tagline">POWER PLATFORM DEVELOPER</div>
     <h1>Hi, I'm Prashant</h1>
     <p>I design and maintain 70+ production Power Automate cloud flows integrating external systems with Microsoft Dataverse — covering real-time order and offer management events, bulk data pipelines processing 100,000+ records, and audited transaction tracking for business-critical workflows.</p>
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">2+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat-item"><span class="stat-num">70+</span><span class="stat-label">Production Flows</span></div>
+      <div class="stat-item"><span class="stat-num">100K+</span><span class="stat-label">Records Processed</span></div>
+    </div>
     <div class="btn-row">
       <a href="#experience" class="btn-primary">See Experience</a>
       <a href="#contact" class="btn-outline">Contact Me</a>
     </div>
   </section>
 
-  <section class="card" id="about">
-    <h2>About</h2>
-    <p>I'm a Software Engineer at UXL Technologies, Bengaluru, building and maintaining 70 production Power Automate cloud flows — 30 for order management and 40 for offer management — each integrating external systems through webhook-based, real-time event triggers. I own the full solution lifecycle: I read business requirements directly from Jira, design the flow logic and data validation rules, get them approved, and implement them myself. My work includes bulk Excel/file import pipelines that validate and insert over 100,000 records into Dataverse transaction tables, automated error-notification emails for failed records, and audit/history tracking that captures previous versus updated values whenever business-critical fields change.</p>
+  <section class="card reveal" id="about">
+    <h2><i class="fas fa-user"></i>About</h2>
+    <p>I'm a Software Engineer at UXL Technologies, Bengaluru, building and maintaining 70 production Power Automate cloud flows — 30 for order management and 40 for offer management — each integrating external systems through webhook-based, real-time event triggers. I own the full solution lifecycle: I read business requirements directly from Jira, design the flow logic and data validation rules, get them approved, and implement them myself. My work includes bulk Excel/file import pipelines that validate and insert over 100,000 records into Dataverse transaction tables, automated error-notification emails for failed records, and audit/history tracking that captures previous versus updated values whenever business-critical fields change. I also helped build the Power Apps Canvas app for the order management system — owning screens, forms, galleries, and validation logic, with the app calling Power Automate flows directly and processing their responses in real time.</p>
   </section>
 
-  <section class="card" id="skills">
-    <h2>Skills</h2>
+  <section class="card reveal" id="skills">
+    <h2><i class="fas fa-layer-group"></i>Skills</h2>
     <div class="skill-group">
       <h4>Power Platform</h4>
       <div class="tech-stack">
         <span class="tag">Power Automate (Cloud Flows)</span>
         <span class="tag">Microsoft Dataverse</span>
-        <span class="tag">Solutions</span>
+        <span class="tag">Power Apps (Canvas)</span>
+        <span class="tag">Power Fx</span>
+        <span class="tag">Solutions (Managed/Unmanaged)</span>
         <span class="tag">Connection References</span>
         <span class="tag">Environment Variables</span>
         <span class="tag">Solution Checker</span>
@@ -220,15 +248,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
     <div class="skill-group" style="margin-bottom:0;">
       <h4>Exploring</h4>
       <div class="tech-stack">
-        <span class="tag">Power Apps (Canvas)</span>
-        <span class="tag">Power Fx</span>
         <span class="tag">Next.js / Node.js / MySQL</span>
       </div>
     </div>
   </section>
 
-  <section class="card" id="experience">
-    <h2>Experience</h2>
+  <section class="card reveal" id="experience">
+    <h2><i class="fas fa-briefcase"></i>Experience</h2>
     <div class="job-head">
       <h3>Software Engineer</h3>
       <span>Oct 2024 – Present</span>
@@ -242,11 +268,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
       <li>Process JSON/API payloads using HTTP actions, Parse JSON, expressions, and data operations across multi-stage order lifecycle events (order received, validated, submitted downstream)</li>
       <li>Implement flow-level error handling, retry logic, and failure-recovery mechanisms to improve integration reliability</li>
       <li>Perform manual environment migrations (Dev → Test → Prod) via the Power Apps portal, including managed vs. unmanaged solution handling, Solution Checker validation, and remapping Connection References and Environment Variables across environments</li>
+      <li>Built a Power Apps Canvas app for the order management system as part of a team — owned screens/navigation, forms, galleries with filtering, and validation logic, with controls connected directly to Dataverse tables</li>
+      <li>Triggered Power Automate flows from within the Canvas app using Power Fx (Patch, Filter, LookUp, Collect) and processed the returned responses to drive in-app logic and user feedback</li>
     </ul>
   </section>
 
-  <section class="card" id="key-project">
-    <h2>Key Project: Order & Offer Management Integration Platform</h2>
+  <section class="card reveal" id="key-project">
+    <h2><i class="fas fa-diagram-project"></i>Key Project: Order & Offer Management Integration Platform</h2>
     <div class="architecture">Source System → Power Automate → Centralized System → Webhook Events → Power Automate → Dataverse</div>
     <ul class="bullet-list">
       <li>Designed the event-driven integration connecting source order/offer systems to a centralized Dataverse platform</li>
@@ -255,8 +283,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
     </ul>
   </section>
 
-  <section class="card" id="projects">
-    <h2>Projects</h2>
+  <section class="card reveal" id="projects">
+    <h2><i class="fas fa-rocket"></i>Projects</h2>
     <div class="project-card">
       <div class="project-head">
         <h3>Expense Tracker</h3>
@@ -274,8 +302,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
     </div>
   </section>
 
-  <section class="card" id="services">
-    <h2>Services</h2>
+  <section class="card reveal" id="services">
+    <h2><i class="fas fa-handshake"></i>Services</h2>
     <div class="services-cards">
       <div class="service-card">
         <i class="fas fa-diagram-project"></i>
@@ -290,8 +318,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
     </div>
   </section>
 
-  <section class="card" id="contact">
-    <h2>Let's Connect</h2>
+  <section class="card reveal" id="contact">
+    <h2><i class="fas fa-envelope"></i>Let's Connect</h2>
     <form id="contactForm">
       <div class="contact-form-group">
         <label>Name</label>
@@ -319,10 +347,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
 
 </div>
 
-<footer>© <span id="year"></span> Prashant · Microsoft Power Platform Developer  </footer>
+<footer>© <span id="year"></span> Prashant · Built with Next.js, in progress</footer>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!prefersReduced && 'IntersectionObserver' in window){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+}
 
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
   link.addEventListener('click', e=>{
