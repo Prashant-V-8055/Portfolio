@@ -171,15 +171,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
 
 <nav class="navbar">
   <div class="header-left">
-   <!-- <div class="avatar">P</div> -->
-    <img src="Prashant.jpeg" class="avatar />
+    <!-- <div class="avatar">P</div> -->
+    <img src = "Prashant.jpeg" class ="avatar" />
     <span class="logo-name">Prashant</span>
   </div>
   <div class="nav-right">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
     <a href="https://www.linkedin.com/in/prashant-v-76016b257/" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a>
@@ -190,9 +189,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
 <div class="page-content">
 
   <section class="card" id="home">
-    <div class="tagline">POWER PLATFORM DEVELOPER</div>
+    <div class="tagline">POWER PLATFORM DEVELOPER · FULL-STACK DEVELOPER</div>
     <h1>Hi, I'm Prashant</h1>
-    <p>I design and maintain 70+ production Power Automate cloud flows integrating external systems with Microsoft Dataverse — covering real-time order and offer management events, bulk data pipelines processing 100,000+ records, and audited transaction tracking for business-critical workflows.</p>
+    <p>I build production automation with Power Automate and Dataverse, and full-stack web applications with Next.js, React, and PostgreSQL.</p>
     <div class="stats-row">
       <div class="stat-item"><span class="stat-num">2+</span><span class="stat-label">Years Experience</span></div>
       <div class="stat-item"><span class="stat-num">70+</span><span class="stat-label">Production Flows</span></div>
@@ -206,11 +205,19 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
 
   <section class="card reveal" id="about">
     <h2><i class="fas fa-user"></i>About</h2>
-    <p>I'm a Software Engineer at UXL Technologies, Bengaluru, building and maintaining 70 production Power Automate cloud flows — 30 for order management and 40 for offer management — each integrating external systems through webhook-based, real-time event triggers. I own the full solution lifecycle: I read business requirements directly from Jira, design the flow logic and data validation rules, get them approved, and implement them myself. My work includes bulk Excel/file import pipelines that validate and insert over 100,000 records into Dataverse transaction tables, automated error-notification emails for failed records, and audit/history tracking that captures previous versus updated values whenever business-critical fields change. I also helped build the Power Apps Canvas app for the order management system — owning screens, forms, galleries, and validation logic, with the app calling Power Automate flows directly and processing their responses in real time.</p>
+    <div class="skill-group">
+      <h4>Microsoft Power Platform Developer</h4>
+      <p style="margin-bottom:0;">Software Engineer at UXL Technologies, Bengaluru, building and maintaining 70+ production Power Automate flows across order and offer management. Own the full solution lifecycle — Jira requirements through Dataverse-integrated design, approval, and implementation — including bulk pipelines handling 100,000+ records and a Power Apps Canvas app connected to Dataverse.</p>
+    </div>
+    <div class="skill-group" style="margin-bottom:0;">
+      <h4>Full-Stack Developer</h4>
+      <p style="margin-bottom:0;">Building full-stack web applications with Next.js, React, and PostgreSQL (via Prisma) — currently developing an expense tracking application end-to-end, from database design to deployment on Vercel.</p>
+    </div>
   </section>
 
   <section class="card reveal" id="skills">
     <h2><i class="fas fa-layer-group"></i>Skills</h2>
+    <div class="tagline" style="margin-top:0;">MICROSOFT POWER PLATFORM DEVELOPER</div>
     <div class="skill-group">
       <h4>Power Platform</h4>
       <div class="tech-stack">
@@ -245,10 +252,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
         <span class="tag">Git & GitHub</span>
       </div>
     </div>
+    <div class="tagline" style="margin-top:10px;">FULL-STACK DEVELOPER</div>
     <div class="skill-group" style="margin-bottom:0;">
-      <h4>Exploring</h4>
+      <h4>Web Development</h4>
       <div class="tech-stack">
-        <span class="tag">Next.js / Node.js / MySQL</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
       </div>
     </div>
   </section>
@@ -271,6 +285,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
       <li>Built a Power Apps Canvas app for the order management system as part of a team — owned screens/navigation, forms, galleries with filtering, and validation logic, with controls connected directly to Dataverse tables</li>
       <li>Triggered Power Automate flows from within the Canvas app using Power Fx (Patch, Filter, LookUp, Collect) and processed the returned responses to drive in-app logic and user feedback</li>
     </ul>
+
+    <div class="job-head" style="margin-top:30px;">
+      <h3>Full-Stack Developer</h3>
+      <span>Ongoing</span>
+    </div>
+    <div class="job-sub">Independent Project — Expense Tracker</div>
+    <ul class="bullet-list">
+      <li>Building a full-stack expense tracking application — Next.js and React on the frontend, Next.js API routes on the backend</li>
+      <li>Using PostgreSQL for data storage with Prisma as the database access layer</li>
+      <li>Managing version control with Git and GitHub, deploying to Vercel</li>
+    </ul>
   </section>
 
   <section class="card reveal" id="key-project">
@@ -281,25 +306,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
       <li>Matched incoming webhook events against existing Dataverse transactions and tracked field-level changes with full before/after history</li>
       <li>Reduced manual monitoring of order lifecycle events and improved traceability of transaction changes across 70 automated workflows</li>
     </ul>
-  </section>
-
-  <section class="card reveal" id="projects">
-    <h2><i class="fas fa-rocket"></i>Projects</h2>
-    <div class="project-card">
-      <div class="project-head">
-        <h3>Expense Tracker</h3>
-      </div>
-      <p style="margin-bottom:0;">Developing a full-stack expense tracking application with user authentication and persistent MySQL storage, using Next.js on the frontend and Node.js/Next.js API routes on the backend.</p>
-      <div class="tech-stack">
-        <span class="tag">Next.js</span>
-        <span class="tag">React</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">NextAuth.js</span>
-        <span class="tag">Git & GitHub</span>
-        <span class="tag">Vercel</span>
-      </div>
-    </div>
   </section>
 
   <section class="card reveal" id="services">
@@ -313,7 +319,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0 calc(2
       <div class="service-card">
         <i class="fas fa-code"></i>
         <h3>Full-Stack Web Development</h3>
-        <p>Web applications using Next.js, Node.js, and MySQL — including authentication, database-backed APIs, and server-side rendering.</p>
+        <p>Web applications using Next.js, React, and PostgreSQL — including database-backed APIs and server-side rendering.</p>
       </div>
     </div>
   </section>
